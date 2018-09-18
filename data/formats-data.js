@@ -3497,20 +3497,22 @@ let BattleFormatsData = {
 	castform: {
 		tier: "PU",
 		doublesTier: "DUU",
+		randomBattleMoves: ["weatherball", "ice beam", "thunderbolt", "fireblast", "hydropump"],
 	},
 	castformsunny: {
-		randomBattleMoves: ["sunnyday", "weatherball", "solarbeam", "icebeam"],
-		requiredAbility: 'Forecast',
-		battleOnly: true,
+		tier: "UU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["thunderbolt", "weatherball", "solarbeam", "icebeam"],
 	},
 	castformrainy: {
-		randomBattleMoves: ["raindance", "weatherball", "thunder", "hurricane"],
-		requiredAbility: 'Forecast',
-		battleOnly: true,
+		tier: "UU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["icebeam", "weatherball", "thunder", "hurricane"],
 	},
 	castformsnowy: {
-		requiredAbility: 'Forecast',
-		battleOnly: true,
+		tier: "UU",
+		doublesTier: "DUU",
+		randomBattleMoves: ["weatherball", "fireblast", "thunderbolt", "hydropump"],
 	},
 	kecleon: {
 		randomBattleMoves: ["fakeout", "knockoff", "drainpunch", "suckerpunch", "shadowsneak", "stealthrock", "recover"],

@@ -16032,7 +16032,7 @@ let BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 6.25%, 9.375%, 12.5%, 18.75%, or 25% of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
 		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
 		id: "stealthrock",
 		isViable: true,
@@ -16048,7 +16048,22 @@ let BattleMovedex = {
 			},
 			onSwitchIn: function (pokemon) {
 				let typeMod = this.clampIntRange(pokemon.runEffectiveness('Rock'), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				switch (typeMod) {
+					case -2:
+					this.damage(pokemon.maxhp / 16);
+					break;
+					case -1:
+					this.damage(pokemon.maxhp * 3 / 32);
+					break;
+					case 1:
+					this.damage(pokemon.maxhp * 6 / 32);
+					break;
+					case 2:
+					this.damage(pokemon.maxhp / 4);
+					break;
+					default:
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 		},
 		secondary: null,
